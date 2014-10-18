@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	
+	<meta title="MillionsOfThem" package="com.dtap.millionsofthem" version="1.0.0" company="Jammy Bastards" />
+	<app main="Main" path="Export" file="MillionsOfThem" />
+	
+	<source path="Source" />
+	
+	<haxelib name="openfl" />
+	
+	<assets path="Assets" rename="assets" exclude="openfl.svg" />
+	<icon path="Assets/openfl.svg" />
+	
+</project>
