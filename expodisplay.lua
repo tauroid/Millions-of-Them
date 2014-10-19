@@ -29,16 +29,10 @@ function ExpoDisplay.create(game,extent,filename,pmousercv,pkeyrcv)
     expodisplay.categoryalignment = { exposition = "center" }
     expodisplay.font = love.graphics.newFont(game.assets["fonts.Goudament"],expodisplay.fontheight)
 
-    local f = io.open(filename)
-    
-    local line = f:read()
-    while line ~= nil do
+    for line in love.filesystem.lines(filename) do
         if line == "" then line = " " end
         expodisplay:addLine(line,"exposition",expodisplay.categorycolours.exposition)
-        line = f:read()
     end
-
-    f:close()
 
     expodisplay:recomputeLineYPositions()
     expodisplay.scrollmax = math.max(expodisplay.lineYpositions[1]+0.05*love.window:getWidth()-expodisplay.extent,0)
@@ -53,11 +47,15 @@ function ExpoDisplay.create(game,extent,filename,pmousercv,pkeyrcv)
     if game.music then
         game.music:stop()
     end
-    if filename == "exposition/intro.txt" then game.music = love.audio.newSource(game.assets["audio.bacon1"])
+    if filename == "exposition/intro.txt" then
+        game.music = love.audio.newSource(game.assets["audio.bacon1"])
+        game.music:setLooping(true)
     elseif filename == "exposition/ending6661.txt" or filename == "exposition/ending6662.txt" then
         game.music = love.audio.newSource(game.assets["audio.bacon2"])
+        game.music:setLooping(true)
     elseif filename == "exposition/ending777.txt" then
         game.music = love.audio.newSource(game.assets["audio.bacon1"])
+        game.music:setLooping(true)
     end
 
     game.music:play()
@@ -80,6 +78,7 @@ function ExpoDisplay:delete()
     if game.music then
         game.music:stop()
         game.music = love.audio.newSource(game.assets["audio.heavenybuisness"])
+        game.music:setLooping(true)
         game.music:play()
     end
 

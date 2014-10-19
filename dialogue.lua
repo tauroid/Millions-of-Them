@@ -29,18 +29,23 @@ function Dialogue.fromFile(filename)
     local ident
     local text
     local revsplit
-    local f = assert(io.open(filename,"r"))
+    local filelines = {}
+    for line in love.filesystem.lines(filename) do
+        table.insert(filelines,line)
+    end
 
-    local line = f:read()
-    while line ~= nil do
+    i = 1
+    while i < table.getn(filelines) do
+        line = filelines[i]
         if line:sub(1,1) == "@" then
             dialogue.charactername = Utils.strslice(line,2,line:len())
         elseif line:sub(1,1) ~= ";" then
             promptindex = Utils.splitLim(line," ",1)[1]
             currentprompt = tonumber(promptindex)
             if currentprompt then
-                line = f:read()
-                while line ~= nil do
+                i = i + 1
+                while i < table.getn(filelines) do
+                    line = filelines[i]
                     local ident,text = unpack(Utils.splitLim(line," ",1))
                     if ident == "#" then break end
                     if ident == "!" then
@@ -62,14 +67,12 @@ function Dialogue.fromFile(filename)
                             table.insert(dialogue.optiontargets,optiontarget)
                         end
                     end
-                    line = f:read()
+                    i = i + 1
                 end
             end
         end
-        line = f:read()
+        i = i + 1
     end         
-
-    f:close()
 
     return dialogue
 end
