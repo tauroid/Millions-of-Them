@@ -1,0 +1,114 @@
+; Andrew Wilson dialogue tree 1;
+
+@Olufemi
+
+1
+! The First Soul for questioning is a young african boy, he timidily steps into your chamber and stares at the ground.
+? And who might you be? 2
+? Look up when I'm talking to you 17
+? Would you like to go to heaven? 14
+#
+
+2
+> ..... M-m-my name is Olufemi.
+? Nice to meet you Olufemi, I'm a demon are you excited to see Hell? 3
+? "Favoured by God". What an ironic meaning your name has. 16
+? Do you know why you're here Olufemi? 15
+#
+
+3
+* Olufemi whimpers and backs away from you
+> I don't want to go to hell.
+? Oh, why would you say that? 4
+? That's reasonable but that's why we're here right now. There is a chance you could still go to heaven. 14
+#
+
+4
+> Because hell is a bad place for bad people.
+? Well yes that is true but bad people deserve it. 5
+? Are you a bad person? 5
+? If you answer these questions honestly there is a slight chance that you could get out of going to hell. 14
+#
+
+5
+> I'm not a bad person.
+? Are you sure about that? Please don't lie to me. 6
+? I'm sure you aren't, do you mind telling me how you died? 10
+? I believe you, you're free to go. There is a chance that I might call for you again. 66
+#
+
+6
+> Well I did use to steal some food but that was only because we were starving and Aban stole our goat.
+? Stealing is wrong and that is why you won't be able to go to heaven. 66
+? Stealing to survive is part of human nature, did you feed others with the food you stole? Or did you eat it all yourself? 7
+? Who's Aban? 8
+#
+
+7
+> No I would feed my sister Mbali because she was sick and couldn't get food herself.
+? Who's the Aban you mentioned earlier? 8
+? Being a sharing person is the sign of a good soul. You may leave for now but I may call on you later. 66
+#
+
+8
+> Aban was the man that protected our village but he would often take these from people. I didn't like him.
+? Hmm, interesting I can see why you would have trouble with him. Was he the man you stole from? 9
+#
+
+9
+> Yes he was the only person who had anything that was worth stealing.
+? Stealing is wrong no matter who you steal from or your circumstance. We are done here, you won't be seeing heaven. 66
+? Stealing to survive is part of human nature, did you feed others with the food you stole? Or did you eat it all yourself? 7
+? Interesting, would you mind telling me how you died? 10
+#
+
+10
+> Erm, I can't remember it.
+? Well what can you remember? 11
+#
+
+11
+* Olufemi rubs his face and scrunches his nose.
+> I remember that day sitting with my sister in our hut when a man barged in and there was a loud bang.
+? It sounds like you were shot. Do you know anyone that would want to shoot you? 12
+? If someone was going to murder you I doubt you were a good person. Tell the truth please Olufemi. 6
+#
+
+12
+> Well I guess that Aban wouldn't be very happy with me.
+? Who's Aban? 8
+? That would make sense for Aban to want to kill you for the things you did. Unfortunately you will have to endure hell for eternity. 66
+? Aban didn't even give you a chance to explain yourself? Would you have confessed to your crimes? 13
+#
+
+13
+> Yes I would have confessed if only I was given a chance.
+? Olufemi I believe that you are a good person and I will give you a chance. Leave whilst I think it through. 66
+? Olufemi I believe that you are a good person however failing to confess to your sins leaves you as a sinner prepare yourself for hell. 66
+#
+
+14
+* Olufemi looks up briefly with wide eyes.
+> Really?
+? It depends on whether you were a good person during your life. Did you do anything wrong? 6
+? Ha, no! The mere idea that you think there is a chance is a sin in itself. But let's overlook that, what's the worst thing you ever did in your life? 6
+#
+
+15
+> No.
+? Well there is a very small chance that you could be going to heaven. 14
+#
+
+16
+> I didn't know that, my mother named me.
+? Fair and I guess you're a bit young to appreciate the irony of it. Tell me Olufemi are you ready to go to hell? 3
+#
+
+17
+* The child sniffs loudly then slowly raises his head to look at you.
+? Better, now then what's your name? 2
+#
+
+66
+! End of Interview
+#
