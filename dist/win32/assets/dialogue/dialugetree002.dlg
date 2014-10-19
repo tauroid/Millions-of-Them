@@ -1,0 +1,81 @@
+1
+! The Second Soul for questioning shuffles into the Chamber. In front of you stands the soul of an old Japanese lady.
+? Why are you being sent to Hell? 2
+? I take it you have heard that there is a chance for you to be sent to heaven? 10
+#
+
+2 
+> I made one mistake and now I am awaiting the eternal torture ahead of me.
+? What crime did you commit? 3
+? Did you not repent before death? One mistake is usable overseen if you repent. 6
+? Embrace the hellfire! Leave and suffer in everlasting damnation. 66
+#
+
+3
+> My family's business was failing so I seduced our competitor's CEO and persuaded her from buying out a company we were targeting.
+? Wow! You deserve to burn in hell for adultery! 66
+? I can certainly see why you didn't get into Heaven. However why would the other under demons flag you up as a potential good soul? 4
+#
+
+4
+> I am not sure. For I truly deserve the wrath of Satan.
+? You truly leave me no choice but to grant your desires. Prepare yourself for the pits of Hell! 66
+? Was your cause a holy one? Were you a religious family? 5
+#
+
+5
+> Yes we were a religious family but my sin is too great and I cannot forgive myself as I know my family would not.
+? Hmm, that's very interesting. I'm going to send you back to the waiting area now but I may call on you later. 66
+? If you cannot forgive yourself then you will never be able to repent your horrendous sins. Embrace Hell! 66
+#
+
+6
+> No I did not repent as I did not feel worthy of heaven with what I did. 
+? What crime did you commit? 3 
+? Failure to repent will find you without the glory of heaven. The fires of hell are waiting. 66
+? How did you die? 7
+#  
+
+7
+> I had inoperable stomach cancer which I never got treated as I saw it as a fitting punishment for my sin. 
+? I feel that you suffered enough for your sins and there is a chance that you are worthy. I may call on you later, but for now we are done. 66
+? And what was your sin? 3
+? Why wouldn't you tell your family about the cancer? 8
+#
+
+8
+> My family would love me and care for me till the end. I did not want their attention to be pulled away by my illness and away from the business.
+? Instead you let them grieve for your death? 9
+? Was your family religious? Surely they would forgive you? 5
+? Why would do you care so much about the business? 3
+#
+
+9
+> Their grief would be shorter than the amount of time needed for me to be cared for by them. I also did not merit their pity and love.
+? You truly are an incredibly selfish person if you would not allow your family to love you. 66
+? You are very brave to try and protect your family from your condition and I feel that your redemption is at hand. 66
+? Surely your family was religious and they would help you pray for forgiveness? 5 
+#
+
+10
+> Yes but I do not want to be considered for heaven. I am prepared for hell.
+? So be it. Hell it is! Be gone with you. 66
+? Only someone who is really good OR incredibly evil would feel inadequate for heaven. Which are you? 11
+? What makes you certain that you are ready for hell? 12
+#
+
+11
+> Oh I wouldn't say I'm truly evil yet I have sinned enough to be unworthy of paradise.
+? What did you do? 2
+? You seem like a religious person why wouldn't you repent your sins? 6
+#
+
+12
+> There is no way of knowing what awaits me in Hell, yet I know that it is the torment I must endure.
+? It is worse than you could ever imagine but I hope it is what you were looking for. 66
+? How much did you sin in your life to make you feel this way? 2
+#
+
+66
+! End of Interview.
+#
