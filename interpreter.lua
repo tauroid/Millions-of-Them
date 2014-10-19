@@ -25,14 +25,16 @@ function Interpreter.create(game,context,linebuffer)
     return interpreter
 end
 
+function Interpreter:start()
+    if self.context then
+        local contextstartresponse = self.context:poke()
+        self:processResponse(contextstartresponse)
+    end
+end
+
 function Interpreter:pushContext(c)
     self.context = c
     table.insert(self.contexts,c)
-    local contextstartresponse = c:start()
-    self:pushResponse(contextstartresponse)
-    if contextstartresponse.finish and contextstartresponse.finish > 0 then
-        self:popContext()
-    end
 end
 
 function Interpreter:popContext()
@@ -41,8 +43,8 @@ function Interpreter:popContext()
     if numcontexts > 1 then
         table.remove(self.contexts,numcontexts)
         self.context = self.contexts[numcontexts-1]
-        self:pushResponse(self.context:repeatResponse())
-    end
+        self:pushResponse(self.context:poke())
+    else love.event.quit() end
     return context
 end
 
@@ -54,7 +56,10 @@ function Interpreter:pushResponse(r)
     end
     if r.responselines then
         for i,v in ipairs(r.responselines) do
-            self:push(v,"response")
+            local msg = Utils.splitLim(v," ",1)
+            if msg[1] == "*" then
+                self:push(msg[2],"prompt")
+            else self:push(v,"response") end
         end
     end
     if r.promptlines then
@@ -77,18 +82,24 @@ function Interpreter:process(s)
     if self.context then
         local contextresponse
         if shellaction == "repeat" then
-            contextresponse = self.context:repeatResponse()
+            contextresponse = self.context:poke()
         else
             contextresponse = self.context:query(s)
         end
-        self:pushResponse(contextresponse)
-        if contextresponse.finish and contextresponse.finish > 0 then
-            self:popContext()
-        end
-        if contextresponse.newcontext then
-            self:pushContext(contextresponse.newcontext)
-        end
+        self:processResponse(contextresponse)
     else self:push("No context") end
+end
+
+function Interpreter:processResponse(r)
+    self:pushResponse(r)
+    if r.finish and r.finish > 0 then
+        self:popContext()
+        self.context:setFinish(r.finish)
+    end
+    if r.newcontext then
+        self:pushContext(r.newcontext)
+        self:start()
+    end
 end
 
 function Interpreter:update()

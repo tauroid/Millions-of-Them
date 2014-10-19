@@ -48,6 +48,9 @@ function Dialogue.fromFile(filename)
                     elseif ident == ">" then
                         table.insert(dialogue.responses,text)
                         table.insert(dialogue.responseprompts,currentprompt)
+                    elseif ident == "*" then
+                        table.insert(dialogue.responses,"* "..text)
+                        table.insert(dialogue.responseprompts,currentprompt)
                     elseif ident == "?" then
                         revsplit = Utils.splitLim(Utils.reverse(text)," ",1)
                         optionindex = Utils.reverse(revsplit[1])
@@ -71,9 +74,19 @@ function Dialogue.fromFile(filename)
     return dialogue
 end
 
-function Dialogue:start()
-    self.lastresponse = { promptlines = { self.prompts[self.prompt] or nil },
-                          optionlines = self.getPromptData(self.prompt,self.options,self.optionprompts) }
+function Dialogue:poke()
+    local promptresponselines = self.getPromptData(self.prompt,self.responses,self.responseprompts)
+    local nprl = table.getn(promptresponselines)
+    self.prefixResponses(promptresponselines,self.charactername)
+    local promptoptionlines = self.getPromptData(self.prompt,self.options,self.optionprompts)
+    local npol = table.getn(promptoptionlines)
+    self.lastresponse = {
+                            responselines = (nprl > 0 and promptresponselines or nil),
+                            promptlines = { self.prompts[self.prompt] or nil },
+                            optionlines = (npol > 0 and promptoptionlines or nil),
+                            finish = (npol == 0 and self.prompt or 0),
+                            newcontext = self.nextcontext
+                        }
     return self.lastresponse
 end
 
@@ -99,7 +112,8 @@ function Dialogue:query(s)
                                 responselines = (nprl > 0 and promptresponselines or nil),
                                 promptlines = { self.prompts[self.prompt] or nil },
                                 optionlines = (npol > 0 and promptoptionlines or nil),
-                                finish = (npol == 0 and self.prompt or 0)
+                                finish = (npol == 0 and self.prompt or 0),
+                                newcontext = self.nextcontext
                             }
         return self.lastresponse
     end
@@ -109,7 +123,9 @@ end
 function Dialogue.prefixResponses(responses,prefix)
     if prefix:len() > 0 then
         for i=1,table.getn(responses) do
-            responses[i] = prefix..": "..responses[i]
+            if Utils.splitLim(responses[i]," ",1)[1] ~= "*" then
+                responses[i] = prefix..": "..responses[i]
+            end
         end
     end
 end

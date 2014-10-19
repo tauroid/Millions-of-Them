@@ -1,6 +1,7 @@
 require 'assets'
 require 'commandbox'
 require 'expodisplay'
+require 'gamecontext'
 require 'interpreter'
 require 'textdisplay'
 
@@ -11,14 +12,23 @@ function love.load()
     game.max_y = w:getHeight()/w:getWidth()
     game.assets = Assets.create("assets")
 
-    game.music = {}
+    game.music = nil
     game.logic = {}
     game.data = {}
 
     dlc = DialogueLoadContext.create(game.assets)
     game.textdisplay = TextDisplay.create(game,w:getHeight()-game.assets["images.commandbox"]:getHeight()
                                       -0.05*w:getWidth())
-    game.interpreter = Interpreter.create(game,dlc,game.textdisplay)
+    gc = GameContext.create(game)
+    game.interpreter = Interpreter.create(game,gc,game.textdisplay)
+
+    game.interpreter:pushContext(game.assets["dialogue.dialugetree003"])
+    game.interpreter:pushContext(game.assets["dialogue.dialugetree002"])
+    game.interpreter:pushContext(game.assets["dialogue.dialugetree001"])
+    game.interpreter:pushContext(game.assets["dialogue.help"])
+
+    game.interpreter:start()
+
     game.commandbox = CommandBox.create(game,game.interpreter)
     ExpoDisplay.create(game,w:getHeight()-0.05*w:getWidth(),"exposition/intro.txt",game.textdisplay,game.commandbox)
 end

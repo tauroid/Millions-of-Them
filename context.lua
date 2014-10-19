@@ -2,7 +2,7 @@ Context = {}
 Context.__index = Context
 Context.lastresponse = {}
 
-function Context:start()
+function Context:poke()
     return self:query("")
 end
 
@@ -13,6 +13,10 @@ end
 
 function Context:repeatResponse()
     return self.lastresponse
+end
+
+function Context:setFinish(n)
+
 end
 
 PositiveContext = {}

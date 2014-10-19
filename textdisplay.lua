@@ -1,7 +1,7 @@
 TextDisplay = {}
 TextDisplay.__index = TextDisplay
 TextDisplay.name = "TextDisplay"
-TextDisplay.fontheight = 40
+TextDisplay.fontheight = 32
 TextDisplay.scrollback = 66
 TextDisplay.maxcommands = 6
 TextDisplay.scrolldistance = 60
