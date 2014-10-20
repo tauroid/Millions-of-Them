@@ -1,11 +1,13 @@
 ; Andrew Wilson Angle Dialuge;
 
+@Haniel
+
 1
 * You nervously approach the Angel Commander, Haniel, who is stood close to the barrier with his gaze fixed on the Grand Demon Krazak on the other side. One of the many Angels in his entourage notices your approach and informs Haniel who turns to you.
 > And what are you doing approaching me?
 ? Don't take that tone with me! I'm about to solve our situation. 2
-? Apologies Commander Haniel but I believe I have come up with a a way to destroy Krazak. 6
-? Not much just trying to be helpful. 10
+? Apologies Commander Haniel, but I believe I have come up with a a way to destroy Krazak. 6
+? Not much, just trying to be helpful. 10
 #
 
 2
@@ -33,7 +35,7 @@
 > What benefit would we get from feeding a good soul to Krazak?
 ? The Grand Demons can't withstand that much pureness it would rip him apart. 7
 ? It would make him go BOOM! 7
-? There's a thin chance that it will overload his powers and cause it to rupture from him. 7
+? There's a thin chance that it will overload his powers and rupture from him. 7
 #
 
 6
@@ -55,7 +57,7 @@
 
 9
 * Haniel looks at you suspiciously before shrugging
-> Excellent bring us the soul and we will lower the barrier for a split second.
+> Excellent, bring us the soul and we will lower the barrier for a split second.
 ? On my way. 66
 #
 
@@ -67,7 +69,7 @@
 
 66
 * You leave the Angel Commander and head back to your chamber where you call upon your chosen soul.
-! Remember this is the soul that you are going to feed to the Grand Demon Krazak in the hope that it is a good soul and it will destory him. Choose wisely.
+! Remember this is the soul that you are going to feed to the Grand Demon Krazak in the hope that it is a good soul and it will destroy him. Choose wisely.
 ? Jones 6661
 ? Old Japanese Lady 6662
 ? Olufemi 777

@@ -11,8 +11,8 @@ function GameContext.create(game)
 
     gc.lineno = 1
     gc.linesbeforeangels = { {"The interviews are over.","You make your way out of the questioning room (press Enter)"},
-                            {"You go looking for the angels"} }
-    gc.linesafterangels = { {""} }
+                            {"You go looking for the angels (press Enter)"} }
+    gc.linesafterangels = { }
     gc.sectionno = 1
     gc.sections = { gc.linesbeforeangels, gc.linesafterangels }
 
@@ -42,6 +42,7 @@ function GameContext:endOfSectionResponse(n)
     elseif n == 2 then
         ExpoDisplay.create(game,love.window:getHeight()-love.window:getWidth()*0.05,
                            "exposition/ending"..self.finish..".txt",game.textdisplay,game.commandbox)
-        return { promptlines = {"End"} }
+        return { promptlines = {"Thank you for playing our BaconGameJam submission.",
+                                "Credit: Adam Jacobs, Andrew Wilson, Joseph Brown, John Parker"} }
     end
 end

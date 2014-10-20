@@ -43,7 +43,6 @@ function Interpreter:popContext()
     if numcontexts > 1 then
         table.remove(self.contexts,numcontexts)
         self.context = self.contexts[numcontexts-1]
-        self:pushResponse(self.context:poke())
     else love.event.quit() end
     return context
 end
@@ -95,6 +94,7 @@ function Interpreter:processResponse(r)
     if r.finish and r.finish > 0 then
         self:popContext()
         self.context:setFinish(r.finish)
+        self:pushResponse(self.context:poke())
     end
     if r.newcontext then
         self:pushContext(r.newcontext)

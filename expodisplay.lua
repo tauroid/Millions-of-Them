@@ -4,9 +4,9 @@ ExpoDisplay = {}
 ExpoDisplay.__index = ExpoDisplay
 setmetatable(ExpoDisplay,TextDisplay)
 ExpoDisplay.name = "ExpoDisplay"
-ExpoDisplay.enddelay = 8
+ExpoDisplay.enddelay = 10.35
 ExpoDisplay.startdelay = 10.35
-ExpoDisplay.slowscroll = -30
+ExpoDisplay.slowscroll = -25
 ExpoDisplay.fastscroll = -200
 
 function ExpoDisplay.create(game,extent,filename,pmousercv,pkeyrcv)
